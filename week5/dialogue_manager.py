@@ -64,20 +64,21 @@ class DialogueManager(object):
         #### YOUR CODE HERE ####
         ########################
         self.chatbot = ChatBot(
-            'HelloBot',
-            trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
+            'HelloBot'
         )
-        self.chatbot.train("chatterbot.corpus.english")
+        self.cbtrainer = ChatterBotCorpusTrainer(self.chatbot)
+        self.cbtrainer.train("chatterbot.corpus.english")
+        self.cbltrainer = ListTrainer(self.chatbot)
         self.chatbot.set_trainer(ListTrainer)
-        self.chatbot.train([
+        self.cbltrainer.train([
             "How are you doing?",
             "I am good!",
         ])
-        self.chatbot.train([
+        self.cbltrainer.train([
             "What's your hobby?",
             "I love playing cricket,listening music,reading books"
         ])
-        self.chatbot.train([
+        self.cbltrainer.train([
             "Hey",
             "Hello. How do you do?",
             "I am good!",
@@ -85,7 +86,7 @@ class DialogueManager(object):
             'Thank you',
             'You are welcome.'     
         ])
-        self.chatbot.train([
+        self.cbltrainer.train([
             "What is AI?",
             "Me."
         
