@@ -69,7 +69,7 @@ class DialogueManager(object):
         #self.cbtrainer = ChatterBotCorpusTrainer(self.chatbot)
         #self.cbtrainer.train("chatterbot.corpus.english")
         self.cbltrainer = ListTrainer(self.chatbot)
-        self.chatbot.set_trainer(ListTrainer)
+        #self.chatbot.set_trainer(ListTrainer)
         self.cbltrainer.train([
             "How are you doing?",
             "I am good!",
