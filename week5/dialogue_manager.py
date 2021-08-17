@@ -2,8 +2,9 @@ import os
 from sklearn.metrics.pairwise import pairwise_distances_argmin
 
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer
 from utils import *
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
 class ThreadRanker(object):
