@@ -66,8 +66,8 @@ class DialogueManager(object):
         self.chatbot = ChatBot(
             'HelloBot'
         )
-        self.cbtrainer = ChatterBotCorpusTrainer(self.chatbot)
-        self.cbtrainer.train("chatterbot.corpus.english")
+        #self.cbtrainer = ChatterBotCorpusTrainer(self.chatbot)
+        #self.cbtrainer.train("chatterbot.corpus.english")
         self.cbltrainer = ListTrainer(self.chatbot)
         self.chatbot.set_trainer(ListTrainer)
         self.cbltrainer.train([
