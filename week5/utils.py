@@ -46,12 +46,15 @@ def load_embeddings(embeddings_path):
     ########################
     #### YOUR CODE HERE ####
     ########################
-
-    # remove this when you're done
-    raise NotImplementedError(
-        "Open utils.py and fill with your code. In case of Google Colab, download"
-        "(https://github.com/hse-aml/natural-language-processing/blob/master/project/utils.py), "
-        "edit locally and upload using '> arrow on the left edge' -> Files -> UPLOAD")
+    embeddings={}
+    with open(embeddings_path,newline='') as embedding_obj:
+        lines=csv.reader(embedding_obj,delimiter='\t')
+        for line in lines:
+            word=line[0]
+            embedding=np.array(line[1:]).astype(np.float32)
+            embeddings[word]=embedding
+        dim=len(line)-1
+    return embeddings,dim
 
 
 def question_to_vec(question, embeddings, dim):
@@ -62,12 +65,11 @@ def question_to_vec(question, embeddings, dim):
     ########################
     #### YOUR CODE HERE ####
     ########################
-
-    # remove this when you're done
-    raise NotImplementedError(
-        "Open utils.py and fill with your code. In case of Google Colab, download"
-        "(https://github.com/hse-aml/natural-language-processing/blob/master/project/utils.py), "
-        "edit locally and upload using '> arrow on the left edge' -> Files -> UPLOAD")
+    word_embedding=[embeddings[word] for word in question.split() if word in embeddings]
+    if not word_embedding:
+        return np.zeros(dim)
+    words_embeddings = np.array(word_embedding)
+    return np.mean(words_embeddings,axis=0)
 
 
 def unpickle_file(filename):
