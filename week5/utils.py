@@ -48,7 +48,7 @@ def load_embeddings(embeddings_path):
     #### YOUR CODE HERE ####
     ########################
     embeddings={}
-    with open(embeddings_path,newline='') as embedding_obj:
+    with open(embeddings_path) as embedding_obj:
         lines=csv.reader(embedding_obj,delimiter='\t')
         for line in lines:
             word=line[0]
