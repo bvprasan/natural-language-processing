@@ -2,6 +2,7 @@ import nltk
 import pickle
 import re
 import numpy as np
+import csv
 
 nltk.download('stopwords')
 from nltk.corpus import stopwords
